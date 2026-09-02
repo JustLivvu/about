@@ -45,9 +45,18 @@
         border: 1px solid #3f4153;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     .actual_content {
         width: 1000px;
-        
+    }
+    .profile_picture {
+        width: 285px;
+        height: 285px;
+        padding-top: 20px;
+    }
+    .profile_picture img {
+        width: 100%;
+        border-radius: 5px;
     }
 </style>
