@@ -1,4 +1,4 @@
 <script>
-
+import Home from "./views/Home.svelte"
 </script>
-<span>hi</span>
+<Home/>
