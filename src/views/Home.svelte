@@ -1,6 +1,28 @@
+<script lang="ts">
+    import { api } from '../lib/api';
+
+    async function getAvatar() {
+        const response = await api('/media/avatar.jpg');
+
+        if (!response.ok) {
+            throw new Error('Nie udało się pobrać avatara');
+        }
+
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    }
+
+    let avatarUrl = '';
+
+    getAvatar().then((url) => {
+        avatarUrl = url;
+    });
+</script>
 <div class="home_main">
     <div class="info_section">
-
+        <div class="profile_picture">
+            <img src={avatarUrl} alt="Avatar" />
+        </div>
     </div>
     <div class="actual_content">
 
@@ -19,12 +41,13 @@
         gap: 40px;
     }
     .info_section {
-        width: 330px;
+        width: 320px;
         border: 1px solid #3f4153;
+        display: flex;
+        flex-direction: column;
     }
     .actual_content {
         width: 1000px;
-        background-color: white;
         
     }
 </style>
