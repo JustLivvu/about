@@ -23,6 +23,10 @@
         <div class="profile_picture">
             <img src={avatarUrl} alt="Avatar" />
         </div>
+        <div class="basic_info">
+            <span class="username">Livvya</span>
+            <span class="pronouns">livvya · she/her</span>
+        </div>
     </div>
     <div class="actual_content">
 
@@ -51,12 +55,28 @@
         width: 1000px;
     }
     .profile_picture {
-        width: 285px;
-        height: 285px;
+        width: 280px;
+        height: 280px;
         padding-top: 20px;
     }
     .profile_picture img {
         width: 100%;
         border-radius: 5px;
+    }
+    .basic_info {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .username {
+        color: #c9d2f0;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    .pronouns {
+        color: #c9d2f0;
+        font-weight: 400;
+        font-size: 0.9rem;
     }
 </style>
