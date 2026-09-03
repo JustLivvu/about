@@ -43,7 +43,6 @@
 
         <div class="links">
             <Icon icon="mdi:link-variant" />
-
             <a
                 href="https://github.com/justlivvu"
                 target="_blank"
@@ -52,6 +51,7 @@
                 github.com/justlivvu
             </a>
         </div>
+
 
         <div class="separator"></div>
     </div>
