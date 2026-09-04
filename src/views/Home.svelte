@@ -42,25 +42,67 @@
         <div class="separator"></div>
 
         <div class="links">
-            <Icon icon="mdi:link-variant" />
-            <a
-                href="https://github.com/justlivvu"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                github.com/justlivvu
-            </a>
+            <div class="link">
+                <Icon icon="mdi:link-variant" />
+                <a
+                    href="https://github.com/justlivvu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    github.com/justlivvu
+                </a>
+            </div>
         </div>
-
-
         <div class="separator"></div>
+        <div class="description">
+            <span>Hey! I'm Livvya, Developer and maintainer of Picobio, Feel free to fork my project or dm me on discord or here. Dont forget to star Picobio on GitHub!</span>
+        </div>
+        <div class="separator"></div>
+        <div class="profile_creation">
+            <Icon icon="material-symbols-light:calendar-today"/>
+            <span>Joined on Jun 26, 2026</span>
+        </div>
     </div>
 
     <div class="actual_content">
+        
     </div>
 </div>
 
 <style>
+    .profile_creation {
+        color: #aeb9df;
+        font-size: 0.9rem;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        font-weight: 300;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .profile_creation :global(svg) {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+
+    .description {
+        padding: 15px 10px;
+        box-sizing: border-box;
+        width: 100%;
+        color: #aeb9df;
+        font-weight: 300;
+        font-size: 0.9rem;
+    }
+    .link {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
     .separator {
         width: 100%;
         height: 1px;
@@ -107,14 +149,14 @@
     }
 
     .info_section {
-        width: 320px;
+        width: 310px;
         height: fit-content;
         border: 1px solid #3f4153;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #181825;
-        border-radius: 6px;
+        border-radius: 4px;
         overflow: hidden;
     }
 
@@ -123,8 +165,8 @@
     }
 
     .profile_picture {
-        width: 280px;
-        height: 280px;
+        width: 270px;
+        height: 270px;
         padding-top: 20px;
         box-sizing: content-box;
     }
@@ -133,7 +175,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 5px;
+        border-radius: 4px;
         display: block;
     }
 
@@ -171,9 +213,9 @@
     .links {
         width: 100%;
         box-sizing: border-box;
-        padding: 12px 18px;
+        padding: 10px;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 9px;
         color: #8588a3;
     }
