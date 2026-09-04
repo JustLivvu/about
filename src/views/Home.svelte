@@ -60,16 +60,68 @@
         <div class="separator"></div>
         <div class="profile_creation">
             <Icon icon="material-symbols-light:calendar-today"/>
-            <span>Joined on Jun 26, 2026</span>
+            <span>Joined on Jun 14, 2026</span>
         </div>
     </div>
 
     <div class="actual_content">
-        
+        <div class="navbar">
+            <span class="tab-chosen">
+                <Icon icon="material-symbols:book-2-outline"/>    
+                Posts
+            </span>
+            <span class="tab">
+                <Icon icon="material-symbols:android-wifi-3-bar-rounded"/>    
+                Public activity
+            </span>
+            <span class="tab">
+                <Icon icon="material-symbols:person-2-outline-rounded"/>    
+                Following
+            </span>
+            <span class="tab">
+                <Icon icon="material-symbols:person-2-outline-rounded"/>    
+                Followers
+            </span>
+        </div>
     </div>
 </div>
 
 <style>
+    .tab-chosen {
+        padding: 8px;
+        color: #a4abc6;
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        border-bottom: 2px solid #9399b2;
+
+    }
+    .tab {
+        padding: 8px;
+        color: #a4abc6;
+        font-weight: 300;
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        align-items: center;
+        font-size: 0.9rem;
+        gap: 5px;
+
+    }
+    .navbar {
+        width: 800px;
+        padding: 0px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #38394a;
+    }
     .profile_creation {
         color: #aeb9df;
         font-size: 0.9rem;
