@@ -1,6 +1,15 @@
 <script lang="ts">
     import { api } from '../lib/api';
-    import Icon from "@iconify/svelte"
+    import Icon from "@iconify/svelte";
+    import PostsTab from "./tabs/PostsTab.svelte";
+    import ActivityTab from "./tabs/ActivityTab.svelte";
+    import FollowingTab from "./tabs/FollowingTab.svelte";
+    import FollowersTab from "./tabs/FollowersTab.svelte";
+
+    type TabType = 'posts' | 'activity' | 'following' | 'followers';
+
+    let activeTab = $state<TabType>('posts');
+    let avatarUrl = $state('');
 
     async function getAvatar() {
         const response = await api('/media/avatar.jpg');
@@ -12,8 +21,6 @@
         const blob = await response.blob();
         return URL.createObjectURL(blob);
     }
-
-    let avatarUrl = '';
 
     getAvatar().then((url) => {
         avatarUrl = url;
@@ -34,7 +41,7 @@
         <div class="follow_stats">
             <span>0 followers, 0 following</span>
 
-            <button class="more-btn">
+            <button class="more-btn" type="button" aria-label="More options">
                 <Icon icon="mdi:dots-horizontal" />
             </button>
         </div>
@@ -66,22 +73,50 @@
 
     <div class="actual_content">
         <div class="navbar">
-            <span class="tab-chosen">
+            <button
+                type="button"
+                class={activeTab === 'posts' ? 'tab-chosen' : 'tab'}
+                onclick={() => (activeTab = 'posts')}
+            >
                 <Icon icon="material-symbols:book-2-outline"/>    
                 Posts
-            </span>
-            <span class="tab">
+            </button>
+            <button
+                type="button"
+                class={activeTab === 'activity' ? 'tab-chosen' : 'tab'}
+                onclick={() => (activeTab = 'activity')}
+            >
                 <Icon icon="material-symbols:android-wifi-3-bar-rounded"/>    
                 Public activity
-            </span>
-            <span class="tab">
+            </button>
+            <button
+                type="button"
+                class={activeTab === 'following' ? 'tab-chosen' : 'tab'}
+                onclick={() => (activeTab = 'following')}
+            >
                 <Icon icon="material-symbols:person-2-outline-rounded"/>    
                 Following
-            </span>
-            <span class="tab">
+            </button>
+            <button
+                type="button"
+                class={activeTab === 'followers' ? 'tab-chosen' : 'tab'}
+                onclick={() => (activeTab = 'followers')}
+            >
                 <Icon icon="material-symbols:person-2-outline-rounded"/>    
                 Followers
-            </span>
+            </button>
+        </div>
+
+        <div class="tab_content">
+            {#if activeTab === 'posts'}
+                <PostsTab />
+            {:else if activeTab === 'activity'}
+                <ActivityTab />
+            {:else if activeTab === 'following'}
+                <FollowingTab />
+            {:else if activeTab === 'followers'}
+                <FollowersTab />
+            {/if}
         </div>
     </div>
 </div>
@@ -97,9 +132,13 @@
         align-items: center;
         gap: 5px;
         font-size: 0.9rem;
+        border: none;
         border-bottom: 2px solid #9399b2;
-
+        background: transparent;
+        cursor: pointer;
+        font-family: inherit;
     }
+
     .tab {
         padding: 8px;
         color: #a4abc6;
@@ -110,8 +149,12 @@
         align-items: center;
         font-size: 0.9rem;
         gap: 5px;
-
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        font-family: inherit;
     }
+
     .navbar {
         width: 800px;
         padding: 0px;
@@ -122,6 +165,11 @@
         gap: 10px;
         border-bottom: 1px solid #38394a;
     }
+
+    .tab_content {
+        width: 800px;
+    }
+
     .profile_creation {
         color: #aeb9df;
         font-size: 0.9rem;
@@ -149,12 +197,14 @@
         font-weight: 300;
         font-size: 0.9rem;
     }
+
     .link {
         display: flex;
         flex-direction: row;
         gap: 10px;
         align-items: center;
     }
+
     .separator {
         width: 100%;
         height: 1px;
